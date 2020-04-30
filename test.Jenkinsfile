@@ -86,7 +86,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        timeout(time:10, unit:'MINUTES') {
+                        timeout(time:1, unit:'MINUTES') {
                             env.APPROVE_PROD = input message: 'Promote to Production', ok: 'Continue', parameters: [choice(name: 'APPROVE_PROD', choices: 'YES\nNO', description: 'Deploy from STAGING to PRODUCTION?')]
                             if (env.APPROVE_PROD == 'YES'){
                                 env.DPROD = true
